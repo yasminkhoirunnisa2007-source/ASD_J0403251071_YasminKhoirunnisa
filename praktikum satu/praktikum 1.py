@@ -1,7 +1,7 @@
 #---------------------------------------------------------------------------
 #Praktikum 1 : Konsep ADT dan File Handling
 #Latihan Dasar 1 : Membaca seluruh isi file data
-#---------------------------------------------------------------------------
+#----------------------------------------------------------------------------------
 
 print("---- Membuka file dalam satu satu string ----")
 with open("data_mahasiswa.txt", "r", encoding="utf-8") as file:
