@@ -1,0 +1,10 @@
+BRG001,Roti,20
+BRG002,AirMineral,15
+BRG003,TehBotol,10
+BRG004,Dimsum,15
+BRG005,ThaiTea,10
+BRG006,Susu,5
+BRG007,Cilok,15
+BRG008,MieAyam,10
+BRG009,Bakso,10
+BRG010,AyamGeprek,20
