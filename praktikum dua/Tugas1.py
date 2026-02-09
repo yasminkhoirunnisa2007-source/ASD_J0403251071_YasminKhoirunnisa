@@ -11,6 +11,7 @@
 #==================================================================
 # Konstanta nama file
 #==================================================================
+# Menyimpan variabel stok barang file
 nama_file = "stock_barang.txt"
 
 
@@ -27,11 +28,11 @@ def baca_stok(nama_file):
       key = Kodebarang
       value ={"Nama Barang": namabarang, "stok": stok}
     """
-    stok_dict = {}
+    stok_dict = {} #menyimpan data stok
     with open(nama_file, "r", encoding="utf-8") as file:
         for baris in file:
             baris = baris.strip()
-            kodebarang, namabarang, stok = baris.split(",")     
+            kodebarang, namabarang, stok = baris.split(",")    #ambil data per item data 
             stok_dict[kodebarang] = {
                 "Nama Barang": namabarang,
                 "Stok": int(stok)}
@@ -45,6 +46,7 @@ print ("jumlah data terbaca", len(buka_stok))
 # Fungsi: Menyimpan data ke file
 #==================================================================
 def simpan_data(nama_file,stok_dict):
+    #membuat fungsi menyimpan data ke file
     """
     Menyimpan Seluruh data stok ke file teks.
     format per baris : KodeBarang,NamaBarang,Stok
@@ -67,10 +69,11 @@ def simpan_data(nama_file,stok_dict):
 # Fungsi: Menampilkan semua data
 #==================================================================
 def tampilkan_stok(stok_dict):
+    # Membuat tabel header
     print("\n=== STOCK BARANG ===")
     print(f"{'Kode Barang':<10} | {'Nama Barang':<12} | {'Stok':>5}")
-    print("-"*32)
-
+    print("-"*32) # Membuat garis
+    # Menampilkan isi datanya
     for kodebarang in sorted(stok_dict.keys()):
         namabarang = stok_dict[kodebarang]["Nama Barang"]
         stok = stok_dict[kodebarang]["Stok"]
@@ -84,13 +87,15 @@ tampilkan_stok(buka_stok)
 #==================================================================
 def cari_barang(stok_dict):
     # Mencari barang berdasarkan kode barang
+     
+    #membuat input kode barang yang akan dicari
     cari_kodebarang = input("Masukkan kode barang yang ingin dicari:").strip()
 
     if cari_kodebarang in stok_dict:
         namabarang = stok_dict[cari_kodebarang]["Nama Barang"]
         stok = stok_dict[cari_kodebarang]["Stok"]
 
-        print("/n=== Data Barang Ditemukan ===")
+        print("\n=== Data Barang Ditemukan ===")
         print(f"Kode Barang : {cari_kodebarang}")
         print(f"Nama Barang : {namabarang}")
         print(f"Stok    : {stok}")
@@ -98,7 +103,7 @@ def cari_barang(stok_dict):
     else:
         print("Data tidak ditemukan. Pastikan Kode Barang yang dimasukan benar")
     
-cari_barang(buka_stok)
+cari_barang(buka_stok) #memanggil fungsi cari data
 
 
 #==================================================================
@@ -138,10 +143,12 @@ tambah_barang(buka_stok)
 # Fungsi: Update stok barang
 #==================================================================
 def update_stok(stok_dict):
+    #membuat fungsi update data
     """
     Mengubah stok barang (tambah atau kurangi).
     Stok tidak boleh menjadi negatif.
     """
+    #awali dgn mencari kode barang yang ingin di update
     kode = input("Masukkan kode barang yang ingin diupdate: ").strip()
 
     # Mengecek apakah kode ada
@@ -202,15 +209,15 @@ def main():
         pilihan = input("Pilih Menu: ").strip()
 
         if pilihan == "1":
-            tampilkan_stok(buka_stok) #memanggil fs 2 menampilkan barang
+            tampilkan_stok(buka_stok) #memanggil  menampilkan barang
 
-        elif pilihan == "2":            #memanggil fs.3 mencari barang
+        elif pilihan == "2":            #memanggil  mencari barang
             cari_barang(buka_stok)
 
-        elif pilihan == "3":             #memanggil fs.4 menambah barang
+        elif pilihan == "3":             #memanggil  menambah barang
             tambah_barang(buka_stok)
 
-        elif pilihan == "4" :                    #memanggil fs.5 mengupdate stok barang
+        elif pilihan == "4" :                    #memanggil mengupdate stok barang
             update_stok(buka_stok)
 
         elif pilihan == "5" :                       #Menyimpan data ke file
