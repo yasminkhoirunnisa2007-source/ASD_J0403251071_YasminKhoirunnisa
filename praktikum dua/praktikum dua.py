@@ -133,15 +133,15 @@ def main():
         pilihan = input("Pilih Menu: ").strip()
 
         if pilihan == "1":
-            tampilkan_data(buka_data) #memanggil fs 2 menampilkan data
+            tampilkan_data(buka_data) #memanggil menampilkan data
 
-        elif pilihan == "2":            #memanggil fs.3 mencari data
+        elif pilihan == "2":            #memanggil mencari data
             cari_data(buka_data)
 
-        elif pilihan == "3":             #memanggil fs.4 mengubah data
+        elif pilihan == "3":             #memanggil  mengubah data
             ubah_data(buka_data)
 
-        elif pilihan == "4" :                    #memanggil fs.5 menyimpan data ke file
+        elif pilihan == "4" :                    #memanggil menyimpan data ke file
             simpan_data(nama_file, buka_data)
     
         elif pilihan == "0":
