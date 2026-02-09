@@ -83,6 +83,7 @@ tampilkan_stok(buka_stok)
 # Fungsi: Cari barang berdasarkan kode
 #==================================================================
 def cari_barang(stok_dict):
+    # Mencari barang berdasarkan kode barang
     cari_kodebarang = input("Masukkan kode barang yang ingin dicari:").strip()
 
     if cari_kodebarang in stok_dict:
@@ -201,18 +202,18 @@ def main():
         pilihan = input("Pilih Menu: ").strip()
 
         if pilihan == "1":
-            tampilkan_stok(buka_stok) #memanggil fs 2 menampilkan data
+            tampilkan_stok(buka_stok) #memanggil fs 2 menampilkan barang
 
-        elif pilihan == "2":            #memanggil fs.3 mencari data
+        elif pilihan == "2":            #memanggil fs.3 mencari barang
             cari_barang(buka_stok)
 
-        elif pilihan == "3":             #memanggil fs.4 tambah  data
+        elif pilihan == "3":             #memanggil fs.4 menambah barang
             tambah_barang(buka_stok)
 
-        elif pilihan == "4" :                    #memanggil fs.5 menyimpan data ke file
+        elif pilihan == "4" :                    #memanggil fs.5 mengupdate stok barang
             update_stok(buka_stok)
 
-        elif pilihan == "5" :
+        elif pilihan == "5" :                       #Menyimpan data ke file
             simpan_data(nama_file,buka_stok)
     
         elif pilihan == "0":
