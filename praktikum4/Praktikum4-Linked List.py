@@ -9,24 +9,23 @@
 #==========================================================
 
 class Node:
-    #konstruktor adalah fungsi yang dijalankan secara otomatis ketika class Node dipanggil / diinstantiasi
-    def _init_(self, data):
-        self.data = data #menyimpan nilai atau data pada suatu list
-        self.next = None #pointer ini menuju ke note berikutnya (awal=none)
+    #konstruktor adalah fungsi yang dijalankan secara otomatis ketika class node dipanggil/instalasi
+    def __init__(self, data):
+        self.data = data # Menyimpan data pada list
+        self.next = None # Pointer ke node berikutnya (awal=node)
 
-#1)membuat node dengan instantiasi class node'
-NodeA = Node("A")
-NodeB = Node("B")
-NodeC = Node("C")
+#1) Membuat node dengan instantiasi class node
+nodeA = Node("A")
+nodeB = Node("B")
+nodeC = Node("C")
 
-#2) Mendifinisikan head dan menghubungkan Node : A -> B -> C -> None
-head = NodeA
-NodeA.next = NodeB
-NodeB.next = NodeC
+#2) Mendefinisikan head dan Menghubungkan Node : A -> B -> C -> None
+head = nodeA
+nodeA.next = nodeB
+nodeB.next = nodeC
 
-#4)  Traversal: Menelusuri node dari haead sampai ke none
+#4) Traversal : Menelusuri node dari head sampai ke None
 current = head
 while current is not None:
-    print(current.data) #menampilkan data pada node saat ini
-    current = current.next #pindah ke node berikutnya
-
+    print(current.data) # Menampilkan data pada node saat ini
+    current = current.next # Pindah ke node berikutnya

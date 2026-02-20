@@ -7,52 +7,55 @@
 #==========================================================
 #Implementasi Dasar : Stack
 #==========================================================
+
 class Node:
-    #konstruktor adalah fungsi yang dijalankan secara otomatis ketika class Node dipanggil / diinstantiasi
-    def _init_(self, data):
-        self.data = data #menyimpan nilai atau data pada suatu list
-        self.next = None #pointer ini menuju ke note berikutnya (awal=none)
+    #konstruktor adalah fungsi yang dijalankan secara otomatis ketika class node dipanggil/instalasi
+    def __init__(self, data):
+        self.data = data # Menyimpan data pada list
+        self.next = None # Pointer ke node berikutnya (awal=node)
 
 #Stack ada operasi push(memasukkan head baru) dan pop (menghapus head)
 
 class stack:
     def __init__(self):
         self.top = None #top menunjuk ke node paling atas (awalnya kosong)
-
-    def push(self,data): #memasukkan data baru pada stack
+  
+    def push(self,data): #memasukkan data baru ke stack
         #1 membuat node baru
-        NodeBaru = Node(data) #instantiasi/memanggil konstruktor pada class Node
+        nodeBaru = Node(data) #instantiasi/memanggil konstruktor pada class Node
 
-        #2 node baru menunjuk ke top yang lama (head lama)
-        NodeBaru.next = self.top
+        #2 node baru menunjuk ke top (node baru menjadi head)
+        nodeBaru.next = self.top
 
-        #3 geser top pindah ke node baru
-        self.top = NodeBaru
+        #3 geser top ke node baru
+        self.top = nodeBaru
 
     def is_empty(self):
-        return self.top is None #stack kosong jika top = None
-        # B -> A -> None
-    def pop(self): #mengambil / menghapus node paling atas (Top/Head)
+            return self.top is None #stack kosong jika top tidak menunjuk ke node manapun
 
-        if self.is_empty():
-            print("Stack Kosong, tidak bisa pop")
-            return None
+    def pop(self): #mengambil / menghapus node paling atas
         
-        data_terhapus = self.top.data #soroti bagian top dan simpan di variabel
-        # B -> A -> None
-        self.top = self.top.next
-        return data_terhapus
-        # A -> None
+        if self.top is None: #jika stack kosong
+            print("Stack kosong, tidak bisa melakukan pop")
+            return None
+        data_terhapus = self.top.data #soroti bagian top dan simpan di variable (peek)
+        self.top = self.top.next #geser top ke node berikutnya (node setelah top menjadi top baru)
+        return data_terhapus #kembalikan data yang dihapus
 
+    def peek(self):
+        #melihat data pada top tanpa menghapusnya
+        if self.is_empty():
+            return None
+        return self.top.data
 
     def tampilkan(self):
-        #Top -> A -> B
         current = self.top
-        print("Top" , end="->")
+        print ("Top ->", end=" ")
         while current is not None:
-            print(current.data, end="->")
-            current = current.next
-        print("Node")
+            print(current.data) # Menampilkan data pada node saat ini
+            current = current.next # Pindah ke node berikutnya
+        print("None")
+
 
 #Instantiasi Class Stack
 s = stack()
@@ -62,4 +65,4 @@ s.push("C")
 s.tampilkan()
 s.pop()
 s.tampilkan()
-s.pop()
+print("Peek (Lihat Top):", s.peek())
