@@ -1,6 +1,7 @@
 # Identitas
 print("Nama : Yasmin Khoirun Nisa")
-print("NIM  : J0403251071") 
+print("NIM  : J0403251071")
+
 class Node:
     def __init__(self, data):
         self.left = None
@@ -8,7 +9,7 @@ class Node:
         self.data = data
 
     def insert(self, data):
-        if self.data:
+        if self.data is not None:
             if data < self.data:
                 if self.left is None:
                     self.left = Node(data)
@@ -19,6 +20,7 @@ class Node:
                     self.right = Node(data)
                 else:
                     self.right.insert(data)
+            # jika sama, diabaikan (tidak dimasukkan)
         else:
             self.data = data
 
@@ -42,21 +44,25 @@ def postorder(root, result):
         result.append(root.data)
 
 # Persiapan Data
-nim_last_two = 71 
-root_val = nim_last_two
-data_list = [root_val, root_val + 20, root_val + 30, root_val + 10, root_val + 30, root_val + 15] 
+nim_last_two = 71
+root = Node(nim_last_two)
+
+# HAPUS root dari list agar tidak dobel
+data_list = [nim_last_two + 20, nim_last_two + 30,
+             nim_last_two + 10, nim_last_two + 30,
+             nim_last_two + 15]
 
 # Membangun Tree
-root = Node(root_val)
 for val in data_list:
     root.insert(val)
 
-# Menampilkan Hasil
+# Traversal
 in_res, pre_res, post_res = [], [], []
 inorder(root, in_res)
 preorder(root, pre_res)
 postorder(root, post_res)
 
+# Output
 print("In-order Traversal  :", in_res)
 print("Pre-order Traversal :", pre_res)
 print("Post-order Traversal:", post_res)
