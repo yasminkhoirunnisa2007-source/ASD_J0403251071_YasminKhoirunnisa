@@ -1,0 +1,6 @@
+
+0001,Seporsi Mie Ayam,150000
+0002,,My Little Pony,50000
+0003,Jago IT dan Pinter Ngaji,200000
+0004,Keanekaragaman Hayati,75000
+0005,Tanah Airku Indonesia,120000

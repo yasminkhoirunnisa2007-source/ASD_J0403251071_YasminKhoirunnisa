@@ -18,10 +18,10 @@ nama_file = "stock_barang.txt"
 #==================================================================
 # Fungsi: Membaca data dari file
 #==================================================================
-def baca_stok(nama_file):
+def baca_(nama_file):
     """
     Membaca data stok dari file teks.
-    Format per baris: KodeBarang,NamaBarang,Stok
+    Format per baris: Kode_Buku,Nama,Stok
 
     Output:
     - stok_dict (dictionary)
