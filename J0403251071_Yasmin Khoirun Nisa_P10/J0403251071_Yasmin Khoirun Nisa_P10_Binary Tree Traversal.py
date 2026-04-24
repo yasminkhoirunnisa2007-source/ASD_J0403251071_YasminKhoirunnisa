@@ -20,7 +20,7 @@ class Node:
                     self.right = Node(data)
                 else:
                     self.right.insert(data)
-            # jika sama, diabaikan (tidak dimasukkan)
+        
         else:
             self.data = data
 
@@ -47,7 +47,7 @@ def postorder(root, result):
 nim_last_two = 71
 root = Node(nim_last_two)
 
-# HAPUS root dari list agar tidak dobel
+# Hapus root dari list agar tidak dobel
 data_list = [nim_last_two + 20, nim_last_two + 30,
              nim_last_two + 10, nim_last_two + 30,
              nim_last_two + 15]
